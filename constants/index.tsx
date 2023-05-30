@@ -1,11 +1,12 @@
-// export const PitchTubeAddress = "0x0f384daFF7652FfAf7A75CE8a515aE6e9B599135"
-// export const CoreContractAddress = "0x01C3993802Fb76cfa1E7cBD8566f25CD79Da844D"
-// export const ExchangeContractAddress = "0x82C50656Ef2De046f89dCB2ABB52Afa577A49029"
+// NEXT_PUBLIC_LIGHTHOUSE = "767b9907.3f62283fe0e2433fa22558eba0f9428d";
+// NEXT_PUBLIC_STUDIO_API_KEY = "3a95b7e7-8bc5-4052-bbe3-76d4f34da401";
+// NEXT_PUBLIC_HUDDLE = "VwTZ4AGTxme9snANex9tep3NwvVMGfYd";
 
 //for theta_testnet
 // export const PitchTubeAddress = "0x8dc90d8452708E93530E5a2cbB3d4A8B09754432";
 // export const CoreContractAddress = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
-export const ExchangeContractAddress =  "0x201cd879D801dD8C98D136B54AdAaf422e1e5cf4";
+export const ExchangeContractAddress =
+  "0x201cd879D801dD8C98D136B54AdAaf422e1e5cf4";
 
 //--------------------------------------------------------------------------------------
 export const PitchTubeAddress = "0x95E6124148Dff5Ca20aB046Ff6B26abf0949253F";

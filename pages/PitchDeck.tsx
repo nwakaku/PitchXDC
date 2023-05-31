@@ -1,5 +1,3 @@
-
-
 import {
   HuddleClientProvider,
   getHuddleClient,
@@ -12,22 +10,22 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 
 function PitchDeck() {
-  const huddleClient = getHuddleClient(process.env.NEXT_PUBLIC_HUDDLE as string);
+  const huddleClient = getHuddleClient(
+    process.env.NEXT_PUBLIC_HUDDLE as string
+  );
   const peersKeys = useHuddleStore((state) => Object.keys(state.peers));
- const roomState = useHuddleStore((state) => state.roomState);
+  const roomState = useHuddleStore((state) => state.roomState);
 
-
-  const router = useRouter()
-  const {data} = router.query
-  console.log(data)
+  const router = useRouter();
+  const { data } = router.query;
+  console.log(data);
 
   const handleJoin = async () => {
     try {
-      
       await huddleClient.join("startup", {
         address: data as string,
         wallet: undefined,
-        ens: ""
+        ens: "",
       });
 
       console.log("joined");
@@ -36,83 +34,108 @@ function PitchDeck() {
     }
   };
 
-
   return (
     <HuddleClientProvider value={huddleClient}>
       <Head>
         <title>Private Meeting</title>
-         <meta name="description" content="Created with <3 by Wisdom" />
-          <link rel="icon" href="/hatch.png" />
+        <meta name="description" content="Created with <3 by Wisdom" />
+        <link rel="icon" href="/hatch.png" />
       </Head>
-      <div className=" w-full min-h-screen  flex  flex-col bg-[url('https://img.freepik.com/free-vector/abstract-background-design-emerald-green_53876-43540.jpg?w=1800&t=st=1685136098~exp=1685136698~hmac=01f8faa6df82635ce74acf9cc74bdb04394c5a89784a3a6497b73e58e4e7ea9e')]  bg-cover bg-no-repeat items-center gap-4 sm:pt-20 pt-40 justify-start  text-white scrollbar-hide">
+      <div className=" w-full min-h-screen  flex  flex-col bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')]  bg-cover bg-no-repeat items-center gap-4 sm:pt-20 pt-40 justify-start  text-white scrollbar-hide">
+        <h2
+          className={` py-1 px-4  rounded-md m-2 ${
+            roomState.joined
+              ? "bg-lime-500 text-black"
+              : "bg-blue-500 text-white"
+          } font-jose `}
+        >
+          {roomState.joined
+            ? "Enjoy Huddle-01"
+            : "Waiting for Participant to Join"}
+        </h2>
 
-      <h2 className={` py-1 px-4  rounded-md m-2 ${roomState.joined ? "bg-lime-500 text-black" : "bg-blue-500 text-white"} font-jose `}>
-                 {roomState.joined ? "Enjoy Huddle-01" : "Waiting for Participant to Join"}
-      </h2>
-
-      <div className="w-full flex items-center justify-center">
-
-      <button
+        <div className="w-full flex items-center justify-center">
+          <button
             className="rounded-md   bg-lime-500  hover:shadow-xl  hover:scale-110 hover:shadow-purple-600 transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2 "
-              onClick={() =>
-                // will not work in localhost
-                huddleClient.startRecording({
-                  sourceUrl: window.location.href,
-                })
-              }
-            >
-              Start Rec.
-            </button>
-            <button
+            onClick={() =>
+              // will not work in localhost
+              huddleClient.startRecording({
+                sourceUrl: window.location.href,
+              })
+            }
+          >
+            Start Rec.
+          </button>
+          <button
             className="rounded-md   bg-red-500  hover:shadow-xl  hover:scale-110 hover:shadow-purple-600 transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2 "
-            onClick={() => huddleClient.stopRecording({ ipfs: true })}>
-              Stop Rec.
-            </button>
-      </div>
-
-       <div className="md:w-4/6 sm:w-2/3 w-full   mx-auto pb-3 bg-white/10  transition-all duration-300 ease-linear  backdrop-blur-md flex flex-col  items-start justify-start  rounded-xl font-jose ">
-
-
-        <div className="w-full flex  px-3 py-4 gap-4">
-          <div className="w-full bg-stone-800 relative ">
-           <VideoWindow />
-          { !roomState.joined ? <img src="img/huddleinvest.gif" alt="img" className={`sm:w-16 w-8 absolute top-1/2 right-1/2 translate-x-2/4 -translate-y-1/2 rounded-3xl  `}/> : null}
-            </div>
-          <div className="w-full bg-stone-800 relative ">
-          {peersKeys.map((key) => (
-              <PeerVideoAudioElem key={`peerId-${key}`} peerIdAtIndex={key} />
-              
-            ))}
-           { !roomState.joined ? <img src="img/huddlestart.gif" alt="img" className={`sm:w-16 w-8 absolute top-1/2 right-1/2 translate-x-2/4 -translate-y-1/2 rounded-3xl  `}/> : null}
-            </div>
+            onClick={() => huddleClient.stopRecording({ ipfs: true })}
+          >
+            Stop Rec.
+          </button>
         </div>
 
+        <div className="md:w-4/6 sm:w-2/3 w-full   mx-auto pb-3 bg-white/10  transition-all duration-300 ease-linear  backdrop-blur-md flex flex-col  items-start justify-start  rounded-xl font-jose ">
+          <div className="w-full flex  px-3 py-4 gap-4">
+            <div className="w-full bg-stone-800 relative ">
+              <VideoWindow />
+              {!roomState.joined ? (
+                <img
+                  src="img/huddleinvest.gif"
+                  alt="img"
+                  className={`sm:w-16 w-8 absolute top-1/2 right-1/2 translate-x-2/4 -translate-y-1/2 rounded-3xl  `}
+                />
+              ) : null}
+            </div>
+            <div className="w-full bg-stone-800 relative ">
+              {peersKeys.map((key) => (
+                <PeerVideoAudioElem key={`peerId-${key}`} peerIdAtIndex={key} />
+              ))}
+              {!roomState.joined ? (
+                <img
+                  src="img/huddlestart.gif"
+                  alt="img"
+                  className={`sm:w-16 w-8 absolute top-1/2 right-1/2 translate-x-2/4 -translate-y-1/2 rounded-3xl  `}
+                />
+              ) : null}
+            </div>
+          </div>
 
+          <div className=" flex gap-4 w-9/12  flex-wrap mx-auto items-center justify-evenly">
+            <img
+              src="img/join.png"
+              className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2 ${
+                roomState.joined ? "bg-lime-500" : "bg-stone-800"
+              } sm:w-14 w-10`}
+              onClick={handleJoin}
+            />
 
+            <img
+              src="img/camera.png"
+              className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}
+              onClick={() => huddleClient.enableWebcam()}
+            />
 
+            <img
+              src="img/closeVideo.png"
+              className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}
+              onClick={() => huddleClient.disableWebcam()}
+            />
 
-        <div className=" flex gap-4 w-9/12  flex-wrap mx-auto items-center justify-evenly">
-
-<img src="img/join.png" className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2 ${roomState.joined ? "bg-lime-500" : "bg-stone-800"} sm:w-14 w-10`} onClick={handleJoin} />
-
-
-<img src="img/camera.png"   className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}  onClick={() => huddleClient.enableWebcam()}/>
-  
-  
-  
-  <img src="img/closeVideo.png" className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}   onClick={() => huddleClient.disableWebcam()}/>
-
-
-  <img src="img/mute.png" className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}   onClick={() => huddleClient.muteMic()}/>
-  <img src="img/unmute.png" className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}   onClick={() => huddleClient.unmuteMic()}/>
-  
-   </div>
-       </div>
-
+            <img
+              src="img/mute.png"
+              className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}
+              onClick={() => huddleClient.muteMic()}
+            />
+            <img
+              src="img/unmute.png"
+              className={`rounded-md  hover:shadow-md  hover:scale-110 hover:shadow-white transition-all duration-200 ease-linear flex items-center justify-center py-1.5 px-3 sm:my-3 my-1 mr-2  bg-stone-800 sm:w-14 w-10`}
+              onClick={() => huddleClient.unmuteMic()}
+            />
+          </div>
+        </div>
       </div>
     </HuddleClientProvider>
   );
 }
 
 export default PitchDeck;
-

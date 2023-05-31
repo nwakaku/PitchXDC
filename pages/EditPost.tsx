@@ -1,4 +1,9 @@
-import { CoreContractAddress, CoreContractAbi, PitchTubeAddress, PitchTubeAbi } from "../constants";
+import {
+  CoreContractAddress,
+  CoreContractAbi,
+  PitchTubeAddress,
+  PitchTubeAbi,
+} from "../constants";
 import {
   useAccount,
   useContract,
@@ -109,7 +114,7 @@ function EditPostExport() {
     abi: PitchTubeAbi,
     signerOrProvider: signer || provider,
   });
-  
+
   // async function bbb() {
   //   try {
   //   } catch (err) {
@@ -170,14 +175,13 @@ function EditPostExport() {
 
   async function submitPost(val: NewPost) {
     try {
-   
       const checkS = await sbt?.isStartup(address);
       const checkI = await sbt?.isInvestor(address);
       console.log(checkS);
-       if (!(checkS || checkI)){
-        toast.warn("BUY NFT FIRST ")
+      if (!(checkS || checkI)) {
+        toast.warn("BUY NFT FIRST ");
         return;
-       }
+      }
 
       if (!(val.amount && val.descrip && val.name && val.tagline)) return;
       console.log(val);
@@ -299,10 +303,9 @@ function EditPostExport() {
   // ---------------------------------------------------------------------------------
 
   return (
-    <div className="flex items-center justify-center flex-col min-h-screen w-full font-jose bg-[url('https://img.freepik.com/free-vector/abstract-background-design-emerald-green_53876-43540.jpg?w=1800&t=st=1685136098~exp=1685136698~hmac=01f8faa6df82635ce74acf9cc74bdb04394c5a89784a3a6497b73e58e4e7ea9e')]  bg-cover bg-no-repeat sm:pt-20 py-20 sm:pb-44  relative">
+    <div className="flex items-center justify-center flex-col min-h-screen w-full font-jose bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')]  bg-cover bg-no-repeat sm:pt-20 py-20 sm:pb-44  relative">
       <Head>
         <title> Post & Edit Startup</title>
-       
       </Head>
       <ToastContainer />
       <div className="flex flex-col text-white sm:w-6/12 w-11/12 z-30  bg-white/10 backdrop-blur-lg rounded-2xl items-start justify-start gap-2 my-auto  ">
@@ -323,7 +326,6 @@ function EditPostExport() {
                 src={`img/back.png`}
                 alt="header"
                 className="w-6 ml-4 cursor-pointer"
-              
               />
             </Link>
           </span>
@@ -339,7 +341,6 @@ function EditPostExport() {
           </span>
           {(activateEdit === "NAME" || activateEdit === "POST_NEW") && (
             <>
-             
               <div className=" z-30 py-3 flex flex-col flex-wrap items-start  gap-2 w-full px-8 ">
                 <input
                   name="name"
@@ -365,7 +366,6 @@ function EditPostExport() {
 
           {(activateEdit === "TAGLINE" || activateEdit === "POST_NEW") && (
             <>
-            
               <div className=" z-30 py-3 flex flex-col flex-wrap items-start  gap-2 w-full px-8 ">
                 <input
                   name="tagline"
@@ -390,7 +390,6 @@ function EditPostExport() {
 
           {(activateEdit === "AMOUNT" || activateEdit === "POST_NEW") && (
             <>
-              
               <div className=" z-30 py-3 flex flex-col flex-wrap items-start  gap-2 w-full px-8 ">
                 <input
                   name="amount"
@@ -416,7 +415,6 @@ function EditPostExport() {
 
           {(activateEdit === "DESCRIPTION" || activateEdit === "POST_NEW") && (
             <>
-             
               <div className=" z-30 py-3 flex flex-col flex-wrap items-start  gap-2 w-full px-8 ">
                 <textarea
                   name="descrip"
@@ -439,7 +437,6 @@ function EditPostExport() {
           )}
           {activateEdit === "IMAGE" && (
             <>
-             
               <div className=" z-30 py-3 flex flex-col flex-wrap items-start  gap-2 w-full px-8 ">
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -455,7 +452,6 @@ function EditPostExport() {
                   onChange={handleImage}
                 />
 
-            
                 <button
                   onClick={() => changeImg(img)}
                   className="bg-[#ff9e00] text-white py-1 px-4 w-1/4 mx-auto my-3 hover:scale-110 hover:shadow-xl hover:shadow-yellow-800 rounded-xl transition-all duration-150 ease-linear"
@@ -467,7 +463,6 @@ function EditPostExport() {
           )}
           {activateEdit === "VIDEO" && (
             <>
-             
               <div className=" z-30 py-3 flex flex-col flex-wrap items-start  gap-2 w-full px-8 ">
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"

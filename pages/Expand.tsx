@@ -124,7 +124,7 @@ function ExpandExport() {
 
   return (
     <>
-      <div className=" w-full min-h-screen overflow-x-hidden flex  flex-col bg-[url('https://img.freepik.com/free-vector/abstract-background-design-emerald-green_53876-43540.jpg?w=1800&t=st=1685136098~exp=1685136698~hmac=01f8faa6df82635ce74acf9cc74bdb04394c5a89784a3a6497b73e58e4e7ea9e')]  bg-cover bg-no-repeat items-start gap-8 pt-20 justify-start  ">
+      <div className=" w-full min-h-screen overflow-x-hidden flex  flex-col bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')]  bg-cover bg-no-repeat items-start gap-8 pt-20 justify-start  ">
         <ToastContainer />
         <Head>
           <title>PitchTube</title>

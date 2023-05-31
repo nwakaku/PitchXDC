@@ -6,18 +6,18 @@ import { IdentityButton } from "@civic/ethereum-gateway-react";
 import { useGateway } from "@civic/ethereum-gateway-react";
 import { useRouter } from "next/router";
 
-const NFTButton = () => {
-  const { gatewayToken } = useGateway();
-  const router = useRouter();
+// const NFTButton = () => {
+//   const { gatewayToken } = useGateway();
+//   const router = useRouter();
 
-  useEffect(() => {
-    if (gatewayToken) {
-      router.push("/BuyNFT");
-    }
-  }, [gatewayToken, router]);
+//   useEffect(() => {
+//     if (gatewayToken) {
+//       router.push("/BuyNFT");
+//     }
+//   }, [gatewayToken, router]);
 
-  return null;
-};
+//   return null;
+// };
 
 
 export default function Navbar() {
@@ -26,11 +26,11 @@ export default function Navbar() {
 
   const { requestGatewayToken } = useGateway();
 const { gatewayStatus, gatewayToken } = useGateway();
-              console.log(gatewayToken); 
+              // console.log(gatewayToken); 
 
 
   return (
-    <nav className="z-50 w-full bg-[#070a14] p-0 text-white font-body text-xl flex items-start justify-between transition-all duration-300 ease-linear fixed top-0">
+    <nav className="z-50 w-full bg-[#100a25] p-0 text-white font-body text-xl flex items-start justify-between transition-all duration-300 ease-linear fixed top-0">
       <div className="z-80 sm:w-72 cursor-pointer flex items-center mt-3 px-3 justify-center rounded-md">
         <Link href="/">
           <span className="font-heading text-3xl">PitchTube</span>
@@ -108,15 +108,15 @@ const { gatewayStatus, gatewayToken } = useGateway();
               : " hidden sm:flex sm:items-center sm:justify-center  gap-2 my-auto md:pr-4 pr-6"
           }`}
         >
-          {isConnected && <IdentityButton />}
-
-          {gatewayToken ? <NFTButton/> : null}
-
-          {/* <Link href={"/BuyNFT"}>
-            <p className="z-80 cursor-pointer bg-[#ff9e00] hover:bg-[#ffad15] text-black transition-all duration-200 ease-linear   py-1 px-4  rounded-md text-center   ">
-              Buy NFT
-            </p>
-          </Link>  */}
+          {gatewayToken ? (
+            <Link href={"/BuyNFT"}>
+              <p className="z-80 cursor-pointer bg-[#ff9e00] hover:bg-[#ffad15] text-black transition-all duration-200 ease-linear   py-1 px-4  rounded-md text-center   ">
+                Buy NFT
+              </p>
+            </Link>
+          ) : (
+            isConnected && <IdentityButton />
+          )}
 
           <ConnectButton />
         </div>

@@ -51,9 +51,9 @@ interface IStartups {
   // img : string;
   // video : string;
 }
-interface IvidImg{
-  img : string;
-  vid : string;
+interface IvidImg {
+  img: string;
+  vid: string;
 }
 
 function PostStartupExport() {
@@ -66,7 +66,6 @@ function PostStartupExport() {
     abi: CoreContractAbi,
     signerOrProvider: signer || provider,
   });
-  
 
   const sbt = useContract({
     address: PitchTubeAddress,
@@ -86,10 +85,10 @@ function PostStartupExport() {
   const img = useRef("startUp.jpg");
   const video = useRef("aaf8n564dj8nwh19");
 
-  const [ imgVid , setImgVid] = useState<IvidImg>({
-    img : "img/startUp.jpg",
-    vid : "aaf8n564dj8nwh19"
-  })
+  const [imgVid, setImgVid] = useState<IvidImg>({
+    img: "img/startUp.jpg",
+    vid: "aaf8n564dj8nwh19",
+  });
 
   async function getImgVideo() {
     try {
@@ -98,34 +97,33 @@ function PostStartupExport() {
       // imgTx === "startUp"
       //   ? img.current = "startUp.jpg"
       //   : img.current = `https://ipfs.io/ipfs/${imgTx}`;
-      
-      const vidTx = await core?.getVideoHash(address)
+
+      const vidTx = await core?.getVideoHash(address);
       console.log(vidTx);
       // video.current = (vidTx && vidTx !== "NOT_UPLOADED_YET") ? vidTx : "aaf8n564dj8nwh19"
 
       setImgVid({
-        img : imgTx === "startUp" ? "img/startUp.jpg" : `https://ipfs.io/ipfs/${imgTx}`,
-        vid : vidTx === "NOT_UPLOADED_YET" ? "aaf8n564dj8nwh19" : vidTx
-      })
-
+        img:
+          imgTx === "startUp"
+            ? "img/startUp.jpg"
+            : `https://ipfs.io/ipfs/${imgTx}`,
+        vid: vidTx === "NOT_UPLOADED_YET" ? "aaf8n564dj8nwh19" : vidTx,
+      });
     } catch (err) {
-      toast("Recommended to upload a Video ;)" )
+      toast("Recommended to upload a Video ;)");
       console.log("Recommended to upload a Video ;)");
     }
   }
 
   const getDataTx = async () => {
     try {
-      
       const checkS = await sbt?.isStartup(address);
       const checkI = await sbt?.isInvestor(address);
       console.log(checkS);
-      if (!(checkS || checkI)){
-        toast("Buy NFT First")
+      if (!(checkS || checkI)) {
+        toast("Buy NFT First");
         return;
       }
-
-      
 
       const tx = await core?.getOwnerStartups();
       console.log(tx);
@@ -150,11 +148,11 @@ function PostStartupExport() {
   useEffect(() => {}, []);
 
   return (
-    <div className=" w-full min-h-screen overflow-x-hidden flex  flex-col bg-[url('https://img.freepik.com/free-vector/abstract-background-design-emerald-green_53876-43540.jpg?w=1800&t=st=1685136098~exp=1685136698~hmac=01f8faa6df82635ce74acf9cc74bdb04394c5a89784a3a6497b73e58e4e7ea9e')]  bg-cover bg-no-repeat items-start gap-8 pt-20 justify-start  ">
+    <div className=" w-full min-h-screen overflow-x-hidden flex  flex-col bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')]  bg-cover bg-no-repeat items-start gap-8 pt-20 justify-start  ">
       <Head>
         <title>Post Startups</title>
-         <meta name="description" content="Created with <3 by Wisdom" />
-          <link rel="icon" href="/hatch.png" />
+        <meta name="description" content="Created with <3 by Wisdom" />
+        <link rel="icon" href="/hatch.png" />
       </Head>
       <ToastContainer />
       <div className="flex justify-content-center flex-wrap gap-2 ml-16">
@@ -213,7 +211,6 @@ function PostStartupExport() {
                 src={`img/pencil.png`}
                 alt="header"
                 className="ml-8 w-4 cursor-pointer"
-                
               />
             </Link>
           </div>
@@ -297,11 +294,9 @@ function PostStartupExport() {
               </Link>
             </span>
             <div className="w-full my-4 flex items-center justify-center">
-              
               <Player
                 title={"Video"}
                 playbackId={imgVid.vid}
-                
                 autoPlay
                 muted
                 autoUrlUpload={{
@@ -313,7 +308,6 @@ function PostStartupExport() {
           </div>
         </div>
       </div>
-     
     </div>
   );
 }

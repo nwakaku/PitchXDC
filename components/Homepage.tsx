@@ -31,12 +31,12 @@ const Homepage = () => {
             </p>
             {gatewayToken ? (
               <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                <a
+                <Link
                   href="/BuyNFT"
                   className="text-white bg-[#ff9e00]-500 hover:bg-[#ff9e00]-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-[#ff9e00] dark:hover:bg-[#ff9e00] focus:outline-none dark:focus:ring-green-800"
                 >
                   Launch App
-                </a>
+                </Link>
               </div>
             ) : (
               isConnected && <IdentityButton />

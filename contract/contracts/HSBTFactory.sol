@@ -139,7 +139,7 @@ contract HatcherySBT is ERC721, ERC721URIStorage, ERC721Burnable, AccessControl 
     function supportsInterface(bytes4 interfaceId)
         public
         view
-        override(ERC721, AccessControl)
+        override(ERC721, AccessControl, ERC721URIStorage)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
@@ -153,7 +153,7 @@ contract HatcherySBT is ERC721, ERC721URIStorage, ERC721Burnable, AccessControl 
         address from,
         address to,
         uint256 tokenId
-    ) public virtual override {
+    ) public virtual override(ERC721, IERC721) {
         revert("Error: Soulbound tokens cannot be transferred.");
     }
 
@@ -164,7 +164,7 @@ contract HatcherySBT is ERC721, ERC721URIStorage, ERC721Burnable, AccessControl 
         address from,
         address to,
         uint256 tokenId
-    ) public virtual override {
+    ) public virtual override(ERC721, IERC721) {
         revert("Error: Soulbound tokens cannot be transferred.");
     }
 
@@ -176,7 +176,7 @@ contract HatcherySBT is ERC721, ERC721URIStorage, ERC721Burnable, AccessControl 
         address to,
         uint256 tokenId,
         bytes memory data
-    ) public virtual override {
+    ) public virtual override(ERC721, IERC721) {
         revert("Error: Soulbound tokens cannot be transferred.");
     }
 }

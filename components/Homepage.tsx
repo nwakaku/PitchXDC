@@ -25,7 +25,7 @@ const Homepage = () => {
               Empowering Startups <br /> with Opportunities
             </h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              PitchX is an NFT-gated startup incubator platform that enables
+              PitchX is a Civic & NFT-gated startup incubator platform that enables
               startups to raise funding through video pitches while providing
               networking and mentorship opportunities
             </p>

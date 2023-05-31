@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Homepage from '../components/Homepage';
+import { GatewayProvider } from "@civic/ethereum-gateway-react";
+
 
 
 export default function Home() {

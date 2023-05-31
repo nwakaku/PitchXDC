@@ -4,7 +4,20 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import { IdentityButton } from "@civic/ethereum-gateway-react";
 import { useGateway } from "@civic/ethereum-gateway-react";
+import { useRouter } from "next/router";
 
+const NFTButton = () => {
+  const { gatewayToken } = useGateway();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (gatewayToken) {
+      router.push("/BuyNFT");
+    }
+  }, [gatewayToken, router]);
+
+  return null;
+};
 
 
 export default function Navbar() {
@@ -97,13 +110,7 @@ const { gatewayStatus, gatewayToken } = useGateway();
         >
           {isConnected && <IdentityButton />}
 
-          {gatewayToken ? (
-            <Link href={"/BuyNFT"}>
-              <p className="z-80 cursor-pointer bg-[#ff9e00] hover:bg-[#ffad15] text-black transition-all duration-200 ease-linear   py-1 px-4  rounded-md text-center   ">
-                Buy NFT
-              </p>
-            </Link>
-          ) : null}
+          {gatewayToken ? <NFTButton/> : null}
 
           {/* <Link href={"/BuyNFT"}>
             <p className="z-80 cursor-pointer bg-[#ff9e00] hover:bg-[#ffad15] text-black transition-all duration-200 ease-linear   py-1 px-4  rounded-md text-center   ">

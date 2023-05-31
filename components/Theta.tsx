@@ -7,7 +7,7 @@ export const thetaTestnet = {
   nativeCurrency: {
     decimals: 18,
     name: "Theta", // Update with the native currency name of the Theta Testnet
-    symbol: "TFUEL", // Update with the native currency symbol of the Theta Testnet
+    symbol: "TXDC", // Update with the native currency symbol of the Theta Testnet
   },
   rpcUrls: {
     public: { http: ["https://eth-rpc-api-testnet.thetatoken.org/rpc"] }, // Update with the RPC URL for the Theta Testnet

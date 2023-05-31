@@ -3,18 +3,18 @@
 // NEXT_PUBLIC_HUDDLE = "VwTZ4AGTxme9snANex9tep3NwvVMGfYd";
 
 //for theta_testnet
-// export const PitchTubeAddress = "0x8dc90d8452708E93530E5a2cbB3d4A8B09754432";
+// export const PitchXAddress = "0x8dc90d8452708E93530E5a2cbB3d4A8B09754432";
 // export const CoreContractAddress = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
 export const ExchangeContractAddress =
   "0x201cd879D801dD8C98D136B54AdAaf422e1e5cf4";
 
 //--------------------------------------------------------------------------------------
-export const PitchTubeAddress = "0x95E6124148Dff5Ca20aB046Ff6B26abf0949253F";
+export const PitchXAddress = "0x95E6124148Dff5Ca20aB046Ff6B26abf0949253F";
 export const CoreContractAddress = "0x395F2dC809Ab3c75654B5b583F6B8288E5C03222";
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 
-export const PitchTubeAbi = [
+export const PitchXAbi = [
   {
     inputs: [],
     stateMutability: "nonpayable",

@@ -1,6 +1,6 @@
 # DEPLOYMENT
 
-#### PitchTube contract deployed to :
+#### PitchX contract deployed to :
 
 - 0x0f384daFF7652FfAf7A75CE8a515aE6e9B599135
 
@@ -13,7 +13,6 @@
 - 0x82C50656Ef2De046f89dCB2ABB52Afa577A49029
 
 ## Function Checklist
-
 
 ------- Core ----------
 
@@ -28,7 +27,6 @@
 - editAmount
 - withdrawCore
 - +getterFunctions
-
 
 ### Sample Hardhat Project
 

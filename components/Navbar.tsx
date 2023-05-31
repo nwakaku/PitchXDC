@@ -19,21 +19,19 @@ import { useRouter } from "next/router";
 //   return null;
 // };
 
-
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
   const { address, isConnected } = useAccount();
 
   const { requestGatewayToken } = useGateway();
-const { gatewayStatus, gatewayToken } = useGateway();
-              // console.log(gatewayToken); 
-
+  const { gatewayStatus, gatewayToken } = useGateway();
+  // console.log(gatewayToken);
 
   return (
     <nav className="z-50 w-full bg-[#100a25] p-0 text-white font-body text-xl flex items-start justify-between transition-all duration-300 ease-linear fixed top-0">
       <div className="z-80 sm:w-72 cursor-pointer flex items-center mt-3 px-3 justify-center rounded-md">
         <Link href="/">
-          <span className="font-heading text-3xl">PitchTube</span>
+          <span className="font-heading text-3xl">Pitch X</span>
         </Link>
       </div>
 

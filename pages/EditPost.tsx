@@ -1,8 +1,8 @@
 import {
   CoreContractAddress,
   CoreContractAbi,
-  PitchTubeAddress,
-  PitchTubeAbi,
+  PitchXAddress,
+  PitchXAbi,
 } from "../constants";
 import {
   useAccount,
@@ -110,8 +110,8 @@ function EditPostExport() {
   });
 
   const sbt = useContract({
-    address: PitchTubeAddress,
-    abi: PitchTubeAbi,
+    address: PitchXAddress,
+    abi: PitchXAbi,
     signerOrProvider: signer || provider,
   });
 

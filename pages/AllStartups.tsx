@@ -4,8 +4,8 @@ import Head from "next/head";
 import {
   CoreContractAddress,
   CoreContractAbi,
-  PitchTubeAddress,
-  PitchTubeAbi,
+  PitchXAddress,
+  PitchXAbi,
 } from "../constants";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -99,7 +99,7 @@ export default function AllStartups() {
   return (
     <div className="w-full h-screen flex flex-col bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')] bg-cover bg-no-repeat items-center gap-4 pt-24 justify-start text-white scrollbar-hide">
       <Head>
-        <title>PitchTube - Startups</title>
+        <title>PitchX - Startups</title>
         <meta name="description" content="Created with <3 by Wisdom" />
         <link rel="icon" href="/hatch.png" />
       </Head>

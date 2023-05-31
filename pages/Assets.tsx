@@ -103,7 +103,7 @@ export default function Assets() {
   return (
     <div className="w-full min-h-screen overflow-x-hidden sm:pt-28 md:pt-24 pt-40   bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')] bg-cover bg-no-repeat  overflow-hidden  relative ">
       <Head>
-        <title>Your Assets - PitchTube</title>
+        <title>Your Assets - PitchX</title>
         <meta name="description" content="Created with <3 by Wisdom" />
         <link rel="icon" href="/hatch.png" />
       </Head>

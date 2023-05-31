@@ -1,29 +1,21 @@
-import React ,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useGateway } from "@civic/ethereum-gateway-react";
 import { useAccount } from "wagmi";
 import { IdentityButton } from "@civic/ethereum-gateway-react";
 
-
-
-
-export default dynamic (() => Promise.resolve(Homepage), {ssr: false})
+export default dynamic(() => Promise.resolve(Homepage), { ssr: false });
 
 const Homepage = () => {
   const { gatewayStatus, gatewayToken } = useGateway();
   const { address, isConnected } = useAccount();
 
-
   function handleContact(e: string) {
     window.open(e);
   }
-  
-  
 
-   useEffect(() => {
- 
-   }, []);
+  useEffect(() => {}, []);
   return (
     <>
       <section className="bg-[#fff] dark:bg-[#fff]">
@@ -33,7 +25,7 @@ const Homepage = () => {
               Empowering Startups <br /> with Opportunities
             </h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              PitchTube is an NFT-gated startup incubator platform that enables
+              PitchX is an NFT-gated startup incubator platform that enables
               startups to raise funding through video pitches while providing
               networking and mentorship opportunities
             </p>
@@ -64,7 +56,7 @@ const Homepage = () => {
       <footer>
         <div className="bg-[#100a25] text-white grid grid-cols-2 w-full">
           <div className="flex flex-col items-start p-4 justify-start">
-            <p className="text-xl">PitchTube</p>
+            <p className="text-xl">PitchX</p>
             <p className="text-sm">
               A One stop shop for STARTUPS and INVESTORS
             </p>
@@ -97,10 +89,10 @@ const Homepage = () => {
             </div>
           </div>
           <span className=" py-2 my-auto  text-[#c7c7c7] text-xs">
-            ©2023 PitchTube. ALL COPYRIGHTS RESERVED
+            ©2023 PitchX. ALL COPYRIGHTS RESERVED
           </span>
         </div>
       </footer>
     </>
   );
-}
+};

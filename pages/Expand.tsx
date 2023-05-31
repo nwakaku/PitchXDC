@@ -9,8 +9,8 @@ import {
 import {
   CoreContractAddress,
   CoreContractAbi,
-  PitchTubeAddress,
-  PitchTubeAbi,
+  PitchXAddress,
+  PitchXAbi,
 } from "../constants";
 function getKeys() {
   return process.env.NEXT_PUBLIC_STUDIO_API_KEY;
@@ -82,8 +82,8 @@ function ExpandExport() {
   // console.log(invest);
 
   const sbt = useContract({
-    address: PitchTubeAddress,
-    abi: PitchTubeAbi,
+    address: PitchXAddress,
+    abi: PitchXAbi,
     signerOrProvider: signer || provider,
   });
 
@@ -127,7 +127,7 @@ function ExpandExport() {
       <div className=" w-full min-h-screen overflow-x-hidden flex  flex-col bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')]  bg-cover bg-no-repeat items-start gap-8 pt-20 justify-start  ">
         <ToastContainer />
         <Head>
-          <title>PitchTube</title>
+          <title>PitchX</title>
           <meta name="description" content="Created with <3 by Wisdom" />
           <link rel="icon" href="/hatch.png" />
         </Head>

@@ -1,4 +1,4 @@
-import { PitchTubeAbi, PitchTubeAddress } from "../constants";
+import { PitchXAbi, PitchXAddress } from "../constants";
 import { useAccount, useContract, useProvider, useSigner } from "wagmi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,8 +14,8 @@ export default function BuyNFT() {
   const { data: signer } = useSigner();
 
   const sbt = useContract({
-    address: PitchTubeAddress,
-    abi: PitchTubeAbi,
+    address: PitchXAddress,
+    abi: PitchXAbi,
     signerOrProvider: signer || provider,
   });
 
@@ -97,7 +97,7 @@ export default function BuyNFT() {
   return (
     <>
       <Head>
-        <title>PitchTube NFTs</title>
+        <title>PitchX NFTs</title>
         <meta name="description" content="Created with <3 by Wisdom" />
         <link rel="icon" href="/hatch.png" />
       </Head>

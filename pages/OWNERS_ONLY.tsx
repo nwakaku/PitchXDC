@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PitchTubeAbi, PitchTubeAddress } from "../constants";
+import { PitchXAbi, PitchXAddress } from "../constants";
 import { CoreContractAddress, CoreContractAbi } from "../constants";
 import { ExchangeContractAddress, ExchangeContractAbi } from "../constants";
 
@@ -26,8 +26,8 @@ export default function OWNERS_ONLY() {
   const { address, isConnected } = useAccount();
 
   const sbt = useContract({
-    address: PitchTubeAddress,
-    abi: PitchTubeAbi,
+    address: PitchXAddress,
+    abi: PitchXAbi,
     signerOrProvider: signer || provider,
   });
 
@@ -43,27 +43,21 @@ export default function OWNERS_ONLY() {
     signerOrProvider: signer || provider,
   });
 
-
   function handleSUri(e: React.ChangeEvent<HTMLInputElement>) {
-    
     setSUri(e.target.value);
   }
   function handleIUri(e: React.ChangeEvent<HTMLInputElement>) {
-    
     setIUri(e.target.value);
   }
 
   function handleWhiteListAdd(e: React.ChangeEvent<HTMLInputElement>) {
-    
     setWAddress(e.target.value);
   }
   function handleInterestCore(e: React.ChangeEvent<HTMLInputElement>) {
-   
     if (+e.target.value < 0) return;
     setICore(+e.target.value);
   }
   function handleCommissionExchange(e: React.ChangeEvent<HTMLInputElement>) {
-   
     if (+e.target.value < 0) return;
     setCExchange(+e.target.value);
   }
@@ -184,15 +178,14 @@ export default function OWNERS_ONLY() {
     }
   }
 
-
-  const [balances , setBalances ] = useState<any>({
-    HatcheryBal:0,
-    CorBal:0,
-    ExBal:0
-  }) 
+  const [balances, setBalances] = useState<any>({
+    HatcheryBal: 0,
+    CorBal: 0,
+    ExBal: 0,
+  });
 
   const { data: HatcheryBal } = useBalance({
-    address: PitchTubeAddress,
+    address: PitchXAddress,
     watch: true,
   });
   const { data: CorBal } = useBalance({
@@ -204,35 +197,30 @@ export default function OWNERS_ONLY() {
     watch: true,
   });
 
-  
-  async function getBals (){
-
-
+  async function getBals() {
     setBalances({
       HatcheryBal: HatcheryBal?.formatted,
       CorBal: CorBal?.formatted,
-      ExBal: ExBal?.formatted
-    })
+      ExBal: ExBal?.formatted,
+    });
 
     console.log(HatcheryBal);
-
-
   }
 
   useEffect(() => {
-    getBals()
-  }, [])
+    getBals();
+  }, []);
 
   return (
     <>
       <div className=" bg-[#100a25] min-h-screen w-full pb-16 flex flex-col items-center justify-center gap-4">
-      <Head>
-        <title>PitchTube - OwnersOnly</title>
-         <meta name="description" content="Created with <3 by Wisdom" />
+        <Head>
+          <title>PitchX - OwnersOnly</title>
+          <meta name="description" content="Created with <3 by Wisdom" />
           <link rel="icon" href="/hatch.png" />
-      </Head>
+        </Head>
         <ToastContainer />
-    
+
         <div className="text-white gap-4 font-jose  mt-16 text-center px-8 flex flex-wrap items-center justify-center">
           <p className="text-xl sm:text-2xl">
             <b>HatcheryBal:</b>{" "}
@@ -250,9 +238,7 @@ export default function OWNERS_ONLY() {
           </p>
           <p className="text-xl sm:text-2xl">
             <b>ExchangeBalance :</b>{" "}
-            <b className="font-bold text-3xl text-lime-500">
-              {balances.ExBal}
-            </b>{" "}
+            <b className="font-bold text-3xl text-lime-500">{balances.ExBal}</b>{" "}
             <b className="text-xs">tFIL</b>
           </p>
         </div>

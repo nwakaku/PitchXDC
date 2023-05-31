@@ -12,8 +12,9 @@ export default function Navbar() {
   const { address, isConnected } = useAccount();
 
   const { requestGatewayToken } = useGateway();
+const { gatewayStatus, gatewayToken } = useGateway();
+              console.log(gatewayToken); 
 
-  
 
   return (
     <nav className="z-50 w-full bg-[#070a14] p-0 text-white font-body text-xl flex items-start justify-between transition-all duration-300 ease-linear fixed top-0">
@@ -96,11 +97,19 @@ export default function Navbar() {
         >
           {isConnected && <IdentityButton />}
 
+          {gatewayToken ? (
+            <Link href={"/BuyNFT"}>
+              <p className="z-80 cursor-pointer bg-[#ff9e00] hover:bg-[#ffad15] text-black transition-all duration-200 ease-linear   py-1 px-4  rounded-md text-center   ">
+                Buy NFT
+              </p>
+            </Link>
+          ) : null}
+
           {/* <Link href={"/BuyNFT"}>
             <p className="z-80 cursor-pointer bg-[#ff9e00] hover:bg-[#ffad15] text-black transition-all duration-200 ease-linear   py-1 px-4  rounded-md text-center   ">
               Buy NFT
             </p>
-          </Link> */}
+          </Link>  */}
 
           <ConnectButton />
         </div>

@@ -81,11 +81,11 @@ The Platform is created using the Next.js framework and the styling is done usin
 
 ## dev
 
-Name: Wisdom Chris
+Name: Wisdom Chris 
 
 Email: [gmail](nwakakucc@gmail.com)
 
-Track: Video Track
+Track: XDC and Civic
 
 ## How to run the app ? 💫️
 

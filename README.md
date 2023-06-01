@@ -75,7 +75,7 @@ The Platform is created using the Next.js framework and the styling is done usin
 
 ## Challenges I ran into 🏇️
 
-- I ran into the problem of deploying the contract on the theta network , it was my first time deploying to the theta blockchain
+- I ran into the problem of deploying the contract on the xdc network , it was my first time deploying to the xdc blockchain
 
 - Also i was using the protocols like Huddle01 and Livepeer for thr first time , It was quite challenging to implement all that but have to say their docs helped me a lot.
 

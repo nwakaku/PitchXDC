@@ -10,8 +10,8 @@ export const ExchangeContractAddress =
 
 //--------------------------------------------------------------------------------------
 export const PitchXAddress = "0x95E6124148Dff5Ca20aB046Ff6B26abf0949253F";
-// export const CoreContractAddress = "0x395F2dC809Ab3c75654B5b583F6B8288E5C03222";
-export const CoreContractAddress = "0x268199bbAB897dEE811B194623f107A8d40Be515"
+export const CoreContractAddress = "0x395F2dC809Ab3c75654B5b583F6B8288E5C03222";
+// export const CoreContractAddress = "0x268199bbAB897dEE811B194623f107A8d40Be515"
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 

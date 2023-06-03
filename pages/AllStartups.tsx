@@ -97,7 +97,7 @@ export default function AllStartups() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col bg-[url('https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?w=1480&t=st=1685570059~exp=1685570659~hmac=0c9ad43299fbbd33e2b3135a27eee4a86f60301638882cc4fb6a37b7ea1e076e')] bg-cover bg-no-repeat items-center gap-4 pt-24 justify-start text-white scrollbar-hide">
+    <div className="w-full h-screen flex flex-col bg-[url('https://awesomescreenshot.s3.amazonaws.com/image/3743367/40435508-30c48ba47302ecd3669c7aadadbff8a5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSCJQ2NM3XLFPVKA%2F20230603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230603T203615Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Signature=99cfd6b8a6988d538c18488a59d967f23cfe5ce687409d49ee44a7e504090cc5')] bg-cover bg-no-repeat items-center gap-4 pt-24 justify-start text-white scrollbar-hide">
       <Head>
         <title>PitchX - Startups</title>
         <meta name="description" content="Created with <3 by Wisdom" />
